@@ -13,6 +13,8 @@ function App() {
   let [logo, setlogo] = useState('Vinhos');
   
   let [good, jj] = useState(0);
+  let [modal, setModal] = useState(false);
+
   
   
   
@@ -34,7 +36,7 @@ function App() {
               copy[0] = '여자 코트 추천';
               b(copy);
           }}>🙏</span>
-          <h4>{ postTitle[0] } <span onClick={()=>{ jj(good+1)} }>👍</span> { good } </h4>       
+          <h4 onClick={()=>{setModal(!modal)}}>{ postTitle[0] } <span onClick={()=>{ jj(good+1) }}>👍</span> { good } </h4>   
           <p>7월 31일 발행</p>
         </div><div className="list">
           <h4>{ postTitle[1] }</h4>       
@@ -45,7 +47,9 @@ function App() {
           <p>8월 02일 발행</p>
         </div>
 
-        <Modal/>
+        {
+           modal == true ? <Modal/> : null
+        }
 
     </div>
   );
