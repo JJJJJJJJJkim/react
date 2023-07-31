@@ -25,7 +25,7 @@ function App() {
       </div>
         <button onClick={()=>{
           let copy = [...postTitle];
-          copy.sort((a,b)=> a > b ? 1 : -1);
+          copy.sort();
           b(copy);
         }}>가나다순정렬</button>
         <div className="list">
@@ -44,8 +44,21 @@ function App() {
           <h4>{ postTitle[2] }</h4>       
           <p>8월 02일 발행</p>
         </div>
+
+        <Modal/>
+
     </div>
   );
+}
+
+function Modal(){
+  return (
+    <div className='modal'>
+      <h4>제목</h4>
+      <p>날짜</p>
+      <p>상세내용</p>
+    </div>
+  )
 }
 
 export default App;
