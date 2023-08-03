@@ -12,7 +12,7 @@ function App() {
   
   let [logo, setlogo] = useState('Vinhos');
   
-  let [good, jj] = useState(0);
+  let [good, jj] = useState([0,0,0]);
   let [modal, setModal] = useState(false);
 
   
@@ -30,7 +30,7 @@ function App() {
           copy.sort();
           b(copy);
         }}>가나다순정렬</button>
-        <div className="list">
+        {/* <div className="list">
           <span onClick={()=>{
               let copy = [...postTitle];
               copy[0] = '여자 코트 추천';
@@ -45,8 +45,23 @@ function App() {
         <div className="list">
           <h4>{ postTitle[2] }</h4>       
           <p>8월 02일 발행</p>
-        </div>
+        </div> */}
 
+        {
+          postTitle.map((a, i)=>{
+            return (
+              <div className="list">
+                <h4 onClick={()=>{setModal(true)}}>{ postTitle[i] }<span onClick={()=>{
+                    let copy = [...good];
+                    copy[i] +=1;
+                    jj(copy);
+                  }}>👍</span> { good[i] }</h4>
+                <p>8월 02일 발행</p>
+              </div>
+            )
+          })
+        }
+        
         {
            modal == true ? <Modal/> : null
         }
